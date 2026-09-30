@@ -1,0 +1,207 @@
+@charset "UTF-8";
+/*
+______      __    __  
+/ ____/___  / /___/ /  
+/ /   / __ \/ / __  /  
+/ /___/ /_/ / / /_/ /
+\____/\____/_/\__,_/   
+
+Développé par Cold pour CityWish.
+CityWish créé par LOXI- et repris par Cold.
+*/
+
+@font-face {
+    font-family: 'Ubuntu Condensed';
+    src: url('../fonts/power.ttf') format('truetype'),
+    local('Ubuntu Condensed');
+    font-display: swap
+}
+
+* {
+    box-sizing:border-box;
+}
+
+html {
+    overflow: hidden;
+}
+
+body {
+    font-size: 20px;
+    margin:0;
+    padding:0;
+    background-color: #ededed;
+    color:#444;
+    font-family: 'Ubuntu Condensed', sans-serif;
+}
+
+.container {
+    height: auto;
+    width: 50%;
+    margin: 0 auto;
+    transform: scale(0);
+    transition: .3s;
+}
+
+/* Loader */
+@-webkit-keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@-webkit-keyframes popup {
+    0% {
+        -webkit-transform: scale(0);
+    }
+    100% {
+        -webkit-transform: scale(1);
+    }
+}
+
+@keyframes popup {
+    0% {
+        transform: scale(0);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@-webkit-keyframes popdown {
+    0% {
+        -webkit-transform: scale(1);
+    }
+    100% {
+        -webkit-transform: scale(0);
+    }
+}
+
+@keyframes popdown {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(0);
+    }
+}
+
+#loader {
+    font-family: 'Ubuntu Condensed';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(25, 118, 210, .9);
+    z-index: 10;
+    transition: .3s;
+    cursor: wait;
+    user-select: none;
+    -webkit-animation: popup .3s;
+    animation: popup .3s;
+    text-align: center;
+}
+
+.loader-container {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: auto;
+    height: auto;
+    color: white;
+    font-size: 40px;
+}
+
+.loader-container > .loader-img {
+    width: 58px;
+    height: 58px;
+    background: url(../../../assets/imgs/load.png) no-repeat;
+    margin: 20px auto 5px;
+    -webkit-animation: spin .4s linear infinite;
+    animation: spin .4s linear infinite;
+}
+
+.loader-container > #finish-load {
+    font-size: 26px;
+    font-style: italic;
+}
+
+.loader-container > #finish-load:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+#logo-a {
+    position: absolute;
+    width: 100%;
+    height: 265px;
+    background: url("../imgs/CITYwish.png") no-repeat  center, linear-gradient(rgb(45, 189, 232), rgb(0, 112, 165)) no-repeat;
+    top: -100%;
+    left: 0;
+    transition: .5s;
+    margin-bottom: 30px;
+}
+
+.box {
+    width: 100%;
+    height: auto;
+    position: relative;
+}
+
+.box > .top, .content {
+    border-radius: 8px;
+    border-bottom: 2px solid rgba(0, 0, 0, .2);
+    background-color: #fff;
+    width: 100%;
+    height: auto;
+    transition: .3s;
+}
+
+.box > .top:hover, .content:hover, footer:hover {
+    border-color: #1976d2;
+}
+
+.box > .top {
+    text-transform: uppercase;
+    font-size: 30px;
+    text-align: center;
+    margin-bottom: 10px;
+    padding: 10px 20px;
+}
+
+.box > .content {
+    padding: 20px;
+    text-align: center;
+}
+
+footer {
+    margin: 30px auto;
+    width: 100%;
+    background-color: #fff;
+    padding: 10px 20px 20px 20px;
+    border-radius: 8px;
+    border-bottom: 2px solid rgba(0, 0, 0, .2);
+    transition: .1s;
+}
+
+footer > .title {
+    font-size: 22px;
+    width: 50%;
+    height: auto;
+    padding: 5px;
+    border-bottom: 2px solid rgba(0, 0, 0, .2);
+    margin-bottom: 10px;
+}

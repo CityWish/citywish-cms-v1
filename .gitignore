@@ -1,0 +1,13 @@
+# Local configuration and runtime output
+.env
+*.log
+Thumbs.db
+
+# IDE metadata
+.idea/
+
+# Local uploads and generated files
+admin/uploads/
+uploads/
+avatar/log/
+administration/log/

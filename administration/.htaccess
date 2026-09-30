@@ -1,0 +1,196 @@
+# Page d'erreurs
+#ErrorDocument 400 /error
+#ErrorDocument 401 /error
+#ErrorDocument 402 /error
+#ErrorDocument 403 /error
+#ErrorDocument 404 /error
+#ErrorDocument 405 /error
+
+<IfModule mod_rewrite.c>
+    Options +FollowSymlinks
+    RewriteEngine on
+    RewriteBase /
+    RewriteCond %{HTTP_HOST} ^\.(.*)$ [NC]
+	RewriteRule ^(.*)$ https://%1/$1 [R=301,L,QSA,NC]
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME}.php -f
+    RewriteRule ^(.*)$ $1.php [QSA,L]
+</IfModule>
+
+# empêcher la lecture des répertoires
+<IfModule mod_autoindex.c>
+    Options -Indexes
+</IfModule>
+
+# empêcher la lecture des fichiers sensibles
+# reconnus par leur exension
+<FilesMatch "\.(htaccess|htpasswd|ini|log)$">
+    Order Deny,Allow
+    Deny from All
+</FilesMatch>
+
+# Use UTF-8 encoding for anything served text/plain or text/html
+AddDefaultCharset UTF-8
+# Force UTF-8 for a number of file formats
+<IfModule mod_mime.c>
+    AddCharset UTF-8 .atom .css .js .json .rss .vtt .xml
+</IfModule>
+
+# FileETag None is not enough for every server.
+<IfModule mod_headers.c>
+    Header unset ETag
+</IfModule>
+
+# Since we’re sending far-future expires, we don’t need ETags for static content.
+# developer.yahoo.com/performance/rules.html#etags
+FileETag None
+
+# Send CORS headers if browsers request them; enabled by default for images.
+<IfModule mod_setenvif.c>
+    <IfModule mod_headers.c>
+        # mod_headers, y u no match by Content-Type?!
+        <FilesMatch "\.(cur|gif|png|jpe?g|svgz?|ico|webp)$">
+            SetEnvIf Origin ":" IS_CORS
+            Header set Access-Control-Allow-Origin "*" env=IS_CORS
+        </FilesMatch>
+    </IfModule>
+</IfModule>
+
+# Compatibility mode for IE
+<IfModule mod_setenvif.c>
+    <IfModule mod_headers.c>
+        <FilesMatch "\.(htm|html|php)$">
+            BrowserMatch MSIE ie
+            Header set X-UA-Compatible "IE=Edge,chrome=1" env=ie
+        </FilesMatch>
+    </IfModule>
+</IfModule>
+
+<IfModule mod_alias.c>
+    <FilesMatch "\.(html|htm|rtf|rtx|txt|xsd|xsl|xml)$">
+        <IfModule mod_headers.c>
+            Header unset Pragma
+            Header append Cache-Control "public"
+            Header unset Last-Modified
+        </IfModule>
+    </FilesMatch>
+    <FilesMatch "\.(css|htc|js|asf|asx|wax|wmv|wmx|avi|bmp|class|divx|doc|docx|eot|exe|gif|gz|gzip|ico|jpg|jpeg|jpe|json|mdb|mid|midi|mov|qt|mp3|m4a|mp4|m4v|mpeg|mpg|mpe|mpp|otf|odb|odc|odf|odg|odp|ods|odt|ogg|pdf|png|pot|pps|ppt|pptx|ra|ram|svg|svgz|swf|tar|tif|tiff|ttf|ttc|wav|wma|wri|xla|xls|xlsx|xlt|xlw|zip)$">
+        <IfModule mod_headers.c>
+            Header unset Pragma
+            Header append Cache-Control "public"
+        </IfModule>
+    </FilesMatch>
+</IfModule>
+
+# Expires headers (for better cache control)
+<IfModule mod_expires.c>
+    ExpiresActive on
+    ExpiresDefault                              "access plus 1 month"
+    # WebManifest
+    ExpiresByType application/manifest+json     "access plus 1 year"
+    # cache.appcache needs re-requests in FF 3.6 (thanks Remy ~Introducing HTML5)
+    ExpiresByType text/cache-manifest           "access plus 0 seconds"
+    # Your document html
+    ExpiresByType text/html                     "access plus 0 seconds"
+    # Data
+    ExpiresByType text/xml                      "access plus 0 seconds"
+    ExpiresByType application/xml               "access plus 0 seconds"
+    ExpiresByType application/json              "access plus 0 seconds"
+    # Feed
+    ExpiresByType application/rss+xml           "access plus 1 hour"
+    ExpiresByType application/atom+xml          "access plus 1 hour"
+    # Favicon (cannot be renamed)
+    ExpiresByType image/x-icon                  "access plus 1 week"
+    # Media: images, video, audio
+    ExpiresByType image/gif                     "access plus 4 months"
+    ExpiresByType image/png                     "access plus 4 months"
+    ExpiresByType image/jpeg                    "access plus 4 months"
+    ExpiresByType image/webp                    "access plus 4 months"
+    ExpiresByType video/ogg                     "access plus 4 months"
+    ExpiresByType audio/ogg                     "access plus 4 months"
+    ExpiresByType video/mp4                     "access plus 4 months"
+    ExpiresByType video/webm                    "access plus 4 months"
+    # HTC files  (css3pie)
+    ExpiresByType text/x-component              "access plus 1 month"
+    # Webfonts
+    ExpiresByType font/ttf                      "access plus 4 months"
+    ExpiresByType font/otf                      "access plus 4 months"
+    ExpiresByType font/woff                     "access plus 4 months"
+    ExpiresByType font/woff2                    "access plus 4 months"
+    ExpiresByType image/svg+xml                 "access plus 1 month"
+    ExpiresByType application/vnd.ms-fontobject "access plus 1 month"
+    # CSS and JavaScript
+    ExpiresByType text/css                      "access plus 1 year"
+    ExpiresByType application/javascript        "access plus 1 year"
+    # Other
+    ExpiresByType application/pdf               "access plus 1 month"
+</IfModule>
+
+# Gzip compression
+<IfModule mod_deflate.c>
+    # Active compression
+    SetOutputFilter DEFLATE
+    # Force deflate for mangled headers
+    <IfModule mod_setenvif.c>
+        <IfModule mod_headers.c>
+            SetEnvIfNoCase ^(Accept-EncodXng|X-cept-Encoding|X{15}|~{15}|-{15})$ ^((gzip|deflate)\s*,?\s*)+|[X~-]{4,13}$ HAVE_Accept-Encoding
+            RequestHeader append Accept-Encoding "gzip,deflate" env=HAVE_Accept-Encoding
+            # Don’t compress images and other uncompressible content
+            SetEnvIfNoCase Request_URI \\
+            \\.(?:gif|jpe?g|png|rar|zip|exe|flv|mov|wma|mp3|avi|swf|mp?g|mp4|webm|webp|pdf)$ no-gzip dont-vary
+        </IfModule>
+    </IfModule>
+    # Compress all output labeled with one of the following MIME-types
+    <IfModule mod_filter.c>
+    AddOutputFilterByType DEFLATE application/atom+xml \
+                                    application/javascript \
+                                    application/json \
+                                    application/rss+xml \
+                                    application/vnd.ms-fontobject \
+                                    application/x-font-ttf \
+                                    application/xhtml+xml \
+                                    application/xml \
+                                    font/opentype \
+                                    image/svg+xml \
+                                    image/x-icon \
+                                    text/css \
+                                    text/html \
+                                    text/plain \
+                                    text/x-component \
+                                    text/xml
+    </IfModule>
+    <IfModule mod_headers.c>
+        Header append Vary: User-Agent env=!dont-vary
+        Header append Vary: Accept-Encoding
+    </IfModule>
+</IfModule>
+
+# Custom datatype
+<IfModule mod_mime.c>
+    # Media
+    AddType image/webp .webp
+</IfModule>
+
+<IfModule mod_headers.c>
+    # Remplace tous les liens non-sécurisés par des liens sécurisés
+    Header always set Strict-Transport-Security "max-age=63072000; includeSubDomains; preload"
+    # Empêche le navigateur de deviner le type MIME du fichier et d'engendrer des failles XSS
+	Header always set X-Content-Type-Options "nosniff"
+    # Bloquer le contenu si le navigateur détecte une attaque XSS
+	Header always set X-Xss-Protection "1; mode=block"
+    # Empêche le site d'être mis dans une iframe/frame par un autre site et de tromper l'utilisateur
+	Header always set X-Frame-Options "SAMEORIGIN"
+    # Securiser le contenu du referrer
+    Header always set Referrer-Policy "origin-when-cross-origin, strict-origin-when-cross-origin"
+	# Directives de sécurité pour les sources du contenu
+    Header always set Content-Security-Policy "upgrade-insecure-requests; base-uri 'self'; frame-ancestors 'self'; object-src 'none'; script-src https: 'unsafe-inline'"
+    # APIs activées sur le navigateur (webcam, localisation, etc.)
+	Header always set Feature-Policy "accelerometer 'none'; camera 'none'; geolocation 'none'; gyroscope 'none'; magnetometer 'none'; microphone 'none'; payment 'none'; usb 'none'; midi 'none'; xr-spatial-tracking 'none'; sync-xhr 'none'"
+
+    Header always set Connection keep-alive
+</IfModule>
+
+<IfModule headers_module.c>
+Header set Permissions-Policy "autoplay '*'; camera 'none'; payment 'self'; geolocation 'none'; microphone 'none' "
+</IfModule>

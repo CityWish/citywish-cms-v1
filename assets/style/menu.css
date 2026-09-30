@@ -1,0 +1,41 @@
+@charset "UTF-8";
+/*
+______      __    __        __     _   __           __
+/ ____/___  / /___/ /  ___  / /_   / | / /__  ____ _/ /
+/ /   / __ \/ / __  /  / _ \/ __/  /  |/ / _ \/ __ `/ /
+/ /___/ /_/ / / /_/ /  /  __/ /_   / /|  /  __/ /_/ / /
+\____/\____/_/\__,_/   \___/\__/  /_/ |_/\___/\__,_/_/
+
+Développé par Neal et finalisé par Cold pour CityWish
+CityWish créé par LOXI- et repris par Cold
+*/
+
+#barre {
+    width: 100%;
+    height: 65px;
+    background-color: #1F1F1F;
+    border-bottom: 2px solid #1976d2;
+    color: white;
+}
+
+#barre > #container {
+    height: 100%;
+    margin: 0 auto;
+}
+
+#barre > #container > #left > .menu {
+    width: 100%;
+    height: 100%;
+}
+
+#barre > #container > #left > .menu > .nav {
+    height: 100%;
+    width: auto;
+    padding: 10px;
+    display: inline-block;
+    text-align: center;
+}
+
+.sous_nav {
+    display: none;
+}

@@ -1,0 +1,355 @@
+/* Flux */
+.box-flux {
+    width: 100%;
+    height: auto;
+    position: relative;
+    margin-top: 30px;
+}
+
+.box-flux > .top {
+    width: 100%;
+    height: auto;
+}
+
+.box-flux > .top > .title {
+    width: 100%;
+    height: auto;
+    padding: 15px;
+    text-align: center;
+    text-transform: uppercase;
+    background-color: #1967d2;
+    font-family: 'Ubuntu Condensed', sans-serif;
+    font-size: 30px;
+    border-radius: 7px 7px 0 0;
+    color: white;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+#webhooks > .top > .title {
+    background-color: #5865F2;
+}
+
+.box-flux > .bottom {
+    width: 100%;
+    height: auto;
+    padding: 20px 20px 0;
+    background-color: #FFFFFF;
+    border-radius: 0 0 7px 7px;
+}
+
+#webhooks > .bottom {
+    padding: 20px 20px 25px;
+}
+
+.box-flux > .bottom > .subtitle {
+    width: 550px;
+    height: auto;
+    margin: 0 auto 30px auto;
+}
+
+.box-flux > .bottom > .subtitle > form {
+    height: 35px;
+    margin-bottom: 10px;
+}
+
+.box-flux > .bottom > .subtitle > form > .search {
+    width: calc(32.5% - 10px);
+    height: 100%;
+    float: left;
+}
+
+.box-flux > .bottom > .subtitle > form > select {
+    width: calc(22.5% - 5px);
+    height: 100%;
+    float: right;
+    margin: 0;
+    margin-left: 5px;
+}
+
+.box-flux > .bottom > .subtitle > button {
+    background-color: #90CAF9;
+    transition: .1s;
+    border-radius: 5px;
+    user-select: none;
+    font-family: 'Ubuntu Condensed', sans-serif;
+    font-size: 20px;
+    color: white;
+    padding: 5px 20px;
+    text-transform: uppercase;
+    border: 2px solid rgba(255, 255, 255, .5);
+    margin: 0 0 0 15px;
+}
+
+.box-flux > .bottom > .subtitle > button:hover {
+    cursor: pointer;
+    opacity: .75;
+}
+
+.box-flux > .bottom > .subtitle > button:active {
+    transform: scale(.8);
+}
+
+.box-flux > .bottom > .fluxload > .f-date {
+    width: 100%;
+    text-align: center;
+    font-size: 24px;
+    padding: 7.5px;
+    font-family: 'Ubuntu Condensed';
+    margin-bottom: 25px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 8px;
+    background: #90CAF9;
+    color: #fff;
+    animation: popup .3s;
+}
+
+.box-flux > .bottom > .fluxload > a > .f-user {
+    width: 130px;
+    min-height: 170px;
+    transition: .1s;
+    user-select: none;
+    display: inline-block;
+    margin: 0 0 30px 45px;
+    border-radius: 7px;
+    font-family: 'Ubuntu Condensed';
+    text-align: center;
+    color: white;
+    animation: popup .3s;
+}
+
+.box-flux > .bottom > .fluxload > a > .f-user:hover {
+    transform: scale(.95);
+    opacity: .75;
+    cursor: pointer;
+}
+
+.box-flux > .bottom > .fluxload > a > .f-user > .f-top {
+    width: 100%;
+    height: auto;
+    float: left;
+    border-radius: 8px 8px 0 0;
+    padding: 10px;
+    text-transform: uppercase;
+    font-size: 20px;
+    font-weight: bold;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.box-flux > .bottom > .fluxload > a > .f-user > .f-bottom {
+    width: 100%;
+    height: auto;
+    float: left;
+    margin-top: 65px;
+    background-color: #1F1F1F;
+    line-height: 26px;
+    font-size: 20px;
+    border-radius: 0 0 12px 12px;
+}
+
+.box-flux > .bottom > .fluxload > a > .f-user > .f-bottom > .f-oldposte, .box-flux > .bottom > .fluxload > a > .f-user > .f-bottom > .f-poste, .box-flux > .bottom > .fluxload > a > .f-user > .f-bottom > .f-pseudo {
+    padding: 5px 10px;
+    font-size: 20px;
+}
+
+.box-flux > .bottom > .fluxload > a > .f-user > .f-bottom > .f-oldposte {
+    background-color: #E74D3D;
+    border: 2px solid rgba(255, 255, 255, .3);
+}
+
+.box-flux > .bottom > .fluxload > a > .f-user > .f-bottom > .f-poste {
+    border-radius: 0 0 8px 8px;
+    border: 2px solid rgba(255, 255, 255, .3);
+}
+
+.box-flux > .bottom > .fluxload > a > .f-user > .f-bottom > .f-pseudo {
+    font-weight: bold;
+    font-size: 22px;
+}
+
+#webhooks > .bottom > .error-v {
+    animation: none;
+}
+
+#webhooks > .bottom > div > form  {
+    width: 100%;
+    margin-bottom: 35px;
+    font-family: 'Ubuntu Condensed', sans-serif;
+}
+
+#webhooks > .bottom > div > form:last-child  {
+    margin-bottom: 0;
+}
+
+#webhooks > .bottom > div > form > .webname {
+    width: 100%;
+    margin: 15px 0;
+    font-size: 26px;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: center;
+    text-shadow: 0 3px rgba(0, 0, 0, .15);
+    color: #5865F2;
+    border-bottom: 2px solid rgba(0, 0, 0, .15);
+    padding-bottom: 10px;
+}
+
+#webhooks > .bottom > div > form > .webname:first-child {
+    margin-top: 0;
+}
+
+#webhooks > .bottom > div > form > .webhook {
+    width: 100%;
+    height: calc(100% / 3);
+    margin-bottom: 30px;
+}
+
+#webhooks > .bottom > div > form > .webhook:last-child {
+    margin-bottom: 0;
+}
+
+#webhooks > .bottom > div > form > .webhook > .field {
+    width: calc(50% - 12px);
+    display: inline-block;
+    margin: 0 20px 15px 0;
+}
+
+#webhooks > .bottom > div > form > .webhook > .field > label {
+    font-size: 22px;
+    margin-left: 5px;
+    text-shadow: 0 2px rgba(0, 0, 0, .15);
+}
+
+#webhooks > .bottom > div > form > .webhook > .field > input {
+    width: 100%;
+    margin-top: 5px;
+    font-size: 16px;
+    font-family: 'Ubuntu Condensed', sans-serif;
+}
+
+#webhooks > .bottom > div > form > .webhook > .field > select {
+    width: auto;
+    margin-bottom: 0;
+    margin-top: 5px;
+}
+
+#webhooks > .bottom > div > form > .webhook > button {
+    display: inline-block;
+    transition: 0s;
+    border: 2px solid rgba(255, 255, 255, .3);
+    width: calc(50% - 12px);
+    padding: 8px;
+    font-size: 22px;
+    font-family: 'Ubuntu Condensed', sans-serif;
+    border-radius: 8px;
+    margin: 0 15px 0 0;
+    background-color: #28b463;
+    color: #fff;
+}
+
+#webhooks > .bottom > div > form > .webhook > button:last-child {
+    margin-right: 0;
+    background-color: #EF5350;
+}
+
+#webhooks > .bottom > div > form > .webhook > button:hover {
+    opacity: .75;
+    cursor: pointer;
+}
+
+.drag-flux {
+    position: fixed;
+    left: 125px;
+    top: 550px;
+    width: 355px;
+    height: auto;
+    padding: 5px 20px;
+    background-color: white;
+    z-index: 10;
+    border-radius: 12px;
+    border: 2px solid rgba(0, 0, 0, .1);
+    font-family: 'Ubuntu Condensed', sans-serif;
+    user-select: none;
+}
+
+.drag-flux > .top {
+    width: 100%;
+    height: auto;
+    font-size: 26px;
+    padding: 10px 0;
+    border-bottom: 3px solid rgba(0, 0, 0, .2);
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.drag-flux > .content {
+    width: 100%;
+    height: auto;
+    font-size: 18px;
+    padding: 10px 0;
+}
+
+.drag-flux > .content > form > input {
+    margin-bottom: 10px;
+    float: left;
+}
+
+.drag-flux > .content > form > input[type=submit] {
+    font-size: 20px;
+    background-color: #28b463;
+    border: 2px solid rgba(255, 255, 255, .3);
+    padding: 10px;
+}
+
+.drag-flux > .content > form > select {
+    float: left;
+    width: calc((100% / 2) - 10px);
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+.drag-flux > .content > form > #sendflux-avatar {
+    width: 40px;
+    height: 100px;
+    float: right;
+    margin-left: 10px;
+    margin-top: 5px;
+    background: url(https://avatar.citywish.fr/?username=&headonly=1&head_direction=4&size=n) no-repeat center 15px;
+    transition: .3s;
+}
+
+.drag-flux > .content > form > #sendflux-alert {
+    width: 100%;
+    height: auto;
+}
+
+.drag-flux > .content > form > #sendflux-alert > .sendflux-error, .drag-flux > .content > form > #sendflux-alert > .sendflux-warn, .drag-flux > .content > form > #sendflux-alert > .sendflux-success {
+    animation: popup .3s;
+    transition: .1s;
+    width: 100%;
+    border: 2px solid rgba(255, 255, 255, .3);
+    padding: 10px 5px;
+    height: auto;
+    text-align: center;
+    margin-bottom: 10px;
+    color: white;
+    font-size: 19px;
+    border-radius: 5px;
+    float: left;
+}
+
+.drag-flux > .content > form > #sendflux-alert > .sendflux-error:hover, .drag-flux > .content > form > #sendflux-alert > .sendflux-warn:hover, .drag-flux > .content > form > #sendflux-alert > .sendflux-success:hover {
+    opacity: .75;
+}
+
+.drag-flux > .content > form > #sendflux-alert > .sendflux-error {
+    background-color: #FF5252;
+}
+
+.drag-flux > .content > form > #sendflux-alert > .sendflux-warn {
+    background-color: #FFC107;
+}
+
+.drag-flux > .content > form > #sendflux-alert > .sendflux-success {
+    background-color: #28b463;
+}
+

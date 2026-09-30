@@ -1,0 +1,278 @@
+@charset "UTF-8";
+/*
+______      __    __        __     _   __           __
+/ ____/___  / /___/ /  ___  / /_   / | / /__  ____ _/ /
+/ /   / __ \/ / __  /  / _ \/ __/  /  |/ / _ \/ __ `/ /
+/ /___/ /_/ / / /_/ /  /  __/ /_   / /|  /  __/ /_/ / /
+\____/\____/_/\__,_/   \___/\__/  /_/ |_/\___/\__,_/_/
+
+Développé par Neal et Cold pour CityWish
+CityWish créé par LOXI- et repris par Cold
+*/
+
+/* Header */
+header {
+    color: white;
+    height: 200px;
+    background: #4EDDF2 url(../imgs/C17.png) center repeat-x;
+}
+
+header > #container > #left > .logo {
+    font-size: 65px;
+    margin-top: 70px;
+    font-family: Oswald, sans-serif;
+    line-height: 20px;
+    user-select:none;
+}
+
+header > #container > #left > .slogan {
+    font-size: 16px;
+    margin-top: 30px;
+    margin-left: 2px;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px 7px 7px 7px;
+    border-radius: 4px;
+}
+
+header > #container > #right > a {
+    color: white;
+}
+
+header > #container > #right > a > .btn {
+    font-size: 12px;
+    font-weight: bold;
+    display: inline-block;
+    border-radius: 5px;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 11px 10px 10px 10px;
+    width: 150px;
+    margin-top: 80px;
+    line-height: 20px;
+}
+
+header > #container > #right > a > .btn:hover {
+    cursor: pointer;
+}
+
+header > #container > #right > a > #in {
+    background-color: #FF5252;
+    transition: 0.1s;
+}
+
+header > #container > #right > a > #in:hover {
+    background-color: #b55357;
+}
+
+header > #container > #right > a > #co {
+    background-color: #219086;
+    transition: 0.1s;
+}
+
+header > #container > #right > a > #co:hover {
+    background-color: #22847b;
+}
+
+/* Menu */
+#barre {
+    width: auto;
+    height: 60px;
+    background-color: #1F1F1F;
+    color: white;
+    border-bottom: solid 2px #1976d2;
+    position: relative;
+}
+
+#barre > #container > #left > .menu {
+}
+
+#barre > #container > #left > .menu > #active {
+    background-color: #1976d2;
+}
+
+#barre > #container > #left > .menu > #active > a {
+    color: white;
+}
+
+#barre > #container > #left > .menu > .nav {
+    display: inline-block;
+    text-align: center;
+    padding: 20px 14px 19px 14px;
+    position: sticky;
+    z-index: 3;
+    line-height: 20px;
+}
+
+#barre > #container > #left > .menu > .nav > a {
+    color: white;
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: bold;
+    transition: 0.1s;
+}
+
+#barre > #container > #left > .menu > .nav:hover > a {
+    color: #1976d2;
+}
+
+#barre > #container > #right > a > .btn {
+    display: inline-block;
+    display: inline-block;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 7.5px;
+    border-radius: 4px;
+    text-align: center;
+    margin-top: 11px;
+    line-height: 20px;
+}
+
+#barre > #container > #right > a > #go {
+    display: inline-block;
+    box-shadow: 0 2px 0 rgba(25, 118, 210, 1);
+    margin-top: 10px;
+    cursor: pointer;
+    background-color: #333333;
+    transition: 0.1s;
+}
+
+#barre > #container > #right > a > #go:hover {
+    box-shadow: 0 2px 0 rgba(25, 118, 210, 0.7);
+    cursor: pointer;
+    opacity: 0.7;
+    color: gray;
+    transition: 0.1s;
+}
+
+#barre > #container > #right > a > #log {
+    display: inline-block;
+    background-color: #1976d2;
+    margin-left: 13px;
+}
+
+#barre > #container > #right > a > #log > i {
+    line-height: 20px;
+}
+
+
+#barre > #container > #right > a > #log:hover {
+    cursor: pointer;
+    opacity: 0.7;
+}
+
+#u-search {
+    height: auto;
+    width: auto;
+    border-bottom: 2px solid #1976d2;
+    float: left;
+    margin-top: 1px;
+}
+
+.search-user {
+    height: auto;
+    width: auto;
+    float: left;
+    margin: 14px 25px 0 0;
+}
+
+.search-user > a > .search {
+    text-align: center;
+    text-decoration: none;
+    padding: 3px;
+    transition: 0.1s;
+    color: white;
+    width: 30px;
+    height: 30px;
+    background-color: #333333;
+    border-radius: 4px;
+    border-bottom: 2px solid #1976d2;
+    float: right;
+    transform: scale(0);
+    margin: 2px 15px 0 10px;
+    line-height: 20px;
+}
+
+.search-user:hover > a > .search {
+    transform: scale(1);
+    cursor: pointer;
+}
+
+.search-user > .avatar {
+    float: left;
+    width: 35px;
+    height: 35px;
+    margin: 0 25px 0 15px;
+    filter: drop-shadow(1px 0 0 white) drop-shadow(-1px 0 0 white) drop-shadow(0 1px 0 white) drop-shadow(0 -1px 0 white);
+}
+
+.search-user > .avatar > img {
+    display: block;
+    margin-top: -23px;
+    user-select: none;
+}
+
+/* Menu déroulant*/
+#barre > #container > #left > .menu > .nav > .sous_nav {
+    border-radius: 0px 0px 4px 4px;
+    border: 2px solid #E9E9E8;
+    display: none;
+    position: absolute;
+    height: 0;
+    top: 20px;
+    left: 0;
+    background-color: white;
+    border-top: 2px solid #1976d2;
+}
+
+#barre > #container > #left > .menu > .nav:hover > .sous_nav {
+    display: block;
+    height: auto;
+}
+
+#barre > #container > #left > .menu > .nav > .sous_nav > a > li {
+    border-bottom: 1px solid #F3F3F3;
+    padding: 10px;
+    display: inline-block;
+    color: black;
+    float: left;
+    width: 170px;
+    margin-left: -40px;
+    transition: 0.1s;
+}
+
+#barre > #container > #left > .menu > .nav > .sous_nav > a > li:hover {
+    background-color: #EAEAEA;
+    border-left: 2px solid #1976d2;
+}
+
+#barre > #container > #left > .menu > .nav > .sous_nav > a {
+    color: #9D9D9D;
+    font-size: 12px;
+}
+
+@media (max-width: 1200px) {
+    header > #container > #right {
+        margin-right: 50px;
+    }
+}
+
+@media (max-width: 900px) {
+    header > #container > #right {
+        margin-right: 115px;
+    }
+}
+
+#barre > #snowButton {
+    position: absolute;
+    top: 10px;
+    right: 25px;
+    image-rendering: pixelated;
+    filter: drop-shadow(1px 0px 0 white) drop-shadow(-1px 0px 0 white) drop-shadow(0px 1px 0 white) drop-shadow(0px -1px 0 white);
+}
+
+#barre > #snowButton:hover {
+    cursor: pointer;
+    opacity: .5;
+}

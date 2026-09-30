@@ -1,0 +1,36 @@
+.news {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    background-color: #fff;
+    float: left;
+}
+
+.news > .top {
+    float: left;
+    width: 100%;
+    height: auto;
+    max-height: 150px;
+    background-color: #000;
+    border-radius: 10px 10px 0 0;
+}
+
+.news > .top > img {
+    display: block;
+    float: left;
+}
+
+.news > .content {
+    float: left;
+    width: 100%;
+    height: auto;
+    padding: 15px 20px;
+    background: #ff0000;
+}
+
+.news > .footer {
+    float: left;
+    width: 100%;
+    height: auto;
+    /* border-top: 4px solid rgba(0, 0, 0, .1); */
+}

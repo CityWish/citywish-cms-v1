@@ -1,0 +1,85 @@
+@charset "UTF-8";
+/*
+______      __    __     
+/ ____/___  / /___/ / 
+/ /   / __ \/ / __  /  
+/ /___/ /_/ / / /_/ / 
+\____/\____/_/\__,_/  
+
+Développé Cold pour CityWish
+CityWish créé par LOXI- et repris par Cold
+*/
+
+@import url('https://fonts.googleapis.com/css?family=Ubuntu+Condensed');
+
+
+*{box-sizing:border-box;}
+
+body {
+    margin:0;
+    padding:0;
+    background:#ededed;
+    color:#444;
+    font-size:14px;
+    font-family: 'Ubuntu Condensed', sans-serif;
+}
+
+.container {
+    margin:auto;
+    height:auto;
+    width:85%;
+}
+
+.top {
+    width: 100%;
+    min-height: 100px;
+}
+
+.goback {
+    position: fixed;
+    right: 0;
+    padding: 15px;
+    font-size: 20px;
+    color: white;
+    background-color: #1F1F1F;
+    border-bottom: 2px solid #1976d2;
+    margin: 20px 100px;
+    border-radius: 7px;
+    text-decoration: none;
+}
+
+.goback:hover {
+    opacity: 0.5;
+}
+
+.title {
+    position: fixed;
+    left: 0;
+    padding: 15px;
+    font-size: 20px;
+    color: white;
+    background-color: #1F1F1F;
+    border-bottom: 2px solid #1976d2;
+    margin: 20px 100px;
+    border-radius: 7px;
+}
+
+.content {
+    width: 100%;
+    min-height: 50px;
+}
+
+.data-staffs {
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    font-size: 20px;
+    margin: 20px 20px 20px 0;
+    float: left; 
+}
+
+.avatar {
+    position: relative;
+    bottom: 0;
+    left: 0;
+}
