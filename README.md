@@ -1,12 +1,21 @@
 # CityWish
 
-CityWish est une application PHP/MySQL consacrée à la communauté HabboCity :
-actualité, profils, votes, dédicaces, concours, flux communautaire et outils
-d’administration.
+CityWish est un site de fan développé en PHP/MySQL pour la communauté HabboCity :
+actualité, profils, votes, dédicaces, concours, flux communautaire et
+administration.
 
-> **État du projet** : cette version est une base historique en cours de
-> nettoyage. Les contenus et bibliothèques présents dans l’arborescence n’ont
-> pas encore tous été vérifiés pour leur licence ou leur caractère publiable.
+> **À savoir** : il s’agit d’une base de code historique, assez lourde,
+> conservée comme un panier à codes. Le site fonctionne, mais ce dépôt n’est
+> pas destiné à être utilisé tel quel. Vous pouvez vous en servir comme source
+> d’idées, d’exemples ou de briques réutilisables.
+>
+> Plusieurs fonctionnalités dépendent d’un accès à l’API de HabboCity.
+> 
+> Certaines fonctionnalités dépendent ou sont liées à un bot Discord, qui n’est pas inclus dans ce dépôt.
+> 
+> La base de code historique a été a de nombreuses reprises mélangée avec des fonctionnalités développées pour de futures versions de ce projet.
+
+Le projet a été développé par **Neal/Minao** puis remanié au fil des années par **Cold-FR**.
 
 ## Architecture
 
@@ -20,8 +29,8 @@ d’administration.
 | `inc/webhook/` | Client PHP pour les notifications Discord |
 | `assets/templates/` | Fragments HTML communs du site public |
 | `assets/style/`, `assets/js/`, `assets/imgs/` | CSS, JavaScript, polices et images du site public |
-| `admin/` | Administration originale, terminée et actuellement fonctionnelle, utilisant `admin/inc/data.php` |
-| `administration/` | V2 d’administration issue d’un autre dépôt, incomplète à l’origine et adaptée ici en version simplifiée et fonctionnelle temporaire |
+| `admin/` | Administration originale utilisant `admin/inc/data.php` |
+| `administration/` | V2 d’administration issue d’un autre dépôt, adaptée ici en version simplifiée |
 | `avatar/` | Gestionnaire du service d’images d’avatar, avec des garde-fous lorsque l’API HabboCity renvoie une erreur ou devient indisponible |
 | `tools/` | Outils isolés, notamment la sauvegarde de looks |
 | `.htaccess` | Réécriture des URLs, erreurs HTTP, cache et restrictions d’accès |
@@ -45,13 +54,10 @@ d’administration.
 - PHP avec PDO MySQL et les extensions utilisées par l’installation cible ;
 - MySQL ou MariaDB ;
 - Apache avec `mod_rewrite`, `mod_headers`, `mod_expires` et `mod_deflate` ;
-- un accès à l’API HabboCity si les fonctionnalités d’avatar sont activées ;
-- un compte Discord et un webhook si les notifications sont activées.
+- un accès à l’API HabboCity (certaines fonctionnalités dépendent de cette API) ;
 
 Le schéma MySQL est fourni dans [`database_schema.sql`](database_schema.sql).
-Il s’agit d’un dump de structure sans données applicatives (`INSERT INTO`) :
-les comptes, articles, logs, uploads et autres données de production ne sont
-donc pas inclus.
+Il s’agit d’un dump de structure sans données applicatives (`INSERT INTO`).
 
 ## Installation locale
 
@@ -65,9 +71,7 @@ donc pas inclus.
 5. Ouvrir `index.php`, puis vérifier les appels AJAX, la connexion et les
    pages d’administration.
 
-La configuration est centralisée dans `inc/config.php`. Elle ne contient plus
-de secret par défaut : les valeurs sensibles sont lues depuis l’environnement.
-Les variables principales sont `CITYWISH_BASE_URL`, `CITYWISH_DB_HOST`, `CITYWISH_DB_NAME`,
+La configuration est centralisée dans `inc/config.php`. Les variables principales sont `CITYWISH_BASE_URL`, `CITYWISH_DB_HOST`, `CITYWISH_DB_NAME`,
 `CITYWISH_DB_USER`, `CITYWISH_DB_PASS`, `CITYWISH_API_KEY`,
 `CITYWISH_ADMIN_DISCORD_WEBHOOK` et `CITYWISH_GIVEAWAY_DISCORD_WEBHOOK`.
 `CITYWISH_BASE_URL` permet d’adapter les URLs générées par l’application ; le
@@ -104,11 +108,10 @@ docker compose down -v
 docker compose up --build -d
 ```
 
-Cette configuration est destinée à vérifier le démarrage, le routage Apache,
-la connexion PDO et le chargement des pages sans données métier. Les erreurs
-dues à l’absence de comptes, d’articles, de clé API HabboCity ou de webhook
-Discord sont donc attendues dans ce mode de test ; elles ne constituent pas
-un échec de l’installation Docker.
+Cette configuration vérifie le démarrage, le routage Apache, la connexion PDO
+et le chargement des pages sans données métier. Les erreurs liées à l’absence
+de comptes, d’articles, de clé API HabboCity ou de webhook Discord sont
+attendues dans ce mode de test.
 
 ### Correspondance du schéma
 
@@ -123,51 +126,17 @@ Le dump couvre les deux générations de l’administration et le site public :
 - `auth2factor`, `ranking_discord` et `statutvote` sont également présents pour
   les fonctionnalités spécialisées du code.
 
-La structure correspond aux tables et colonnes référencées par le code audité.
-Le commentaire phpMyAdmin du dump indique toutefois une base source nommée
-`app` et un hôte Docker `db:3306` ; ces valeurs ne sont pas utilisées par
-l’application et doivent rester remplacées par la configuration locale
-(`CITYWISH_DB_HOST`, `CITYWISH_DB_NAME`, `SQL_HOST` et `SQL_BASE`).
-
 Le dump a été produit avec MySQL 8.4 et utilise notamment la collation
 `utf8mb4_0900_ai_ci` sur certaines tables de la V2. MariaDB ou une version
 plus ancienne de MySQL peut nécessiter le remplacement de cette collation par
 une collation compatible avant import.
 
-## Audit de publication
-
-La première passe est volontairement un audit : aucun upload, log, asset ou
-fichier suspect n’est supprimé automatiquement.
-
-- `admin/uploads/`, `uploads/` et les images sous `assets/` peuvent contenir
-  des données personnelles, des contenus soumis au droit d’auteur ou des
-  exports historiques ; ils doivent être triés avant publication.
-- `administration/log/`, `avatar/log/`, `log/` et les fichiers `Thumbs.db`
-  sont des artefacts générés ou potentiellement privés.
-- `.idea/` contient des métadonnées locales de l’IDE.
-- `admin/` est l’administration originale, terminée et fonctionnelle : elle
-  doit être conservée comme référence lors de tout nettoyage.
-- `administration/` provient d’un autre dépôt et sa V2 n’était pas terminée ;
-  la version présente dans ce projet est une implémentation simplifiée et
-  fonctionnelle mise en place temporairement. Elle ne doit pas être supprimée
-  ou fusionnée avec `admin/` sans comparaison fonctionnalité par fonctionnalité.
-- `avatar/` n’est pas un simple dossier d’assets : c’est un gestionnaire
-  applicatif d’images d’avatar qui protège le site contre les indisponibilités
-  et erreurs de l’API HabboCity.
-- Les bibliothèques embarquées (`jQuery`, `jQuery UI`, TinyMCE, Bootstrap,
-  Select2, Font Awesome, etc.) doivent conserver leurs fichiers de licence et
-  être vérifiées individuellement.
-- Les identifiants précédemment présents dans les fichiers de configuration
-  doivent être considérés comme compromis : mots de passe SQL, clés API et
-  webhooks Discord doivent être révoqués et régénérés.
-
 ## Limites connues
 
-Le projet ne possède pas encore de gestionnaire de dépendances PHP, de suite
-de tests ou de pipeline CI. Une partie du code est historique et mélange
-présentation, accès aux données et logique métier. Les données, URLs et noms
-de domaine de production doivent être remplacés avant une installation
-publique.
+Le projet n’a pas de gestionnaire de dépendances PHP, de suite de tests ni de
+pipeline CI. Le code mélange parfois présentation, accès aux données et
+logique métier. Remplacez les données, URLs et noms de domaine de production
+avant toute installation publique.
 
 ## Licence et contributions
 
@@ -175,8 +144,3 @@ Le code est destiné à être publié sous GNU GPLv3, conformément au fichier
 `LICENSE`. Cette licence ne couvre pas automatiquement les images, textes,
 polices, bibliothèques tierces, marques ou données de la communauté. Chaque
 élément doit être conservé uniquement si sa licence autorise la redistribution.
-
-Avant toute publication, vérifier l’absence de secrets, logs, exports de base,
-comptes utilisateurs et médias non redistribuables. Les contributions doivent
-indiquer clairement les changements de configuration et les dépendances
-ajoutées.
