@@ -33,12 +33,12 @@
                     <i class="fas fa-home" aria-hidden="true"></i>&nbsp;Accueil
                 </div>
             </a>
-            <a href="https://citywish.fr/admin/" target="_blank">
+            <a href="<?= citywishBaseUrl() ?>admin/" target="_blank">
                 <div class="nav">
                     <i class="fas fa-share-square" aria-hidden="true"></i>&nbsp;Retourner sur l'ancienne administration
                 </div>
             </a>
-            <a href="https://citywish.fr/" target="_blank">
+            <a href="<?= citywishBaseUrl() ?>" target="_blank">
                 <div class="nav">
                     <i class="fas fa-share-square" aria-hidden="true"></i>&nbsp;Retourner sur le site
                 </div>

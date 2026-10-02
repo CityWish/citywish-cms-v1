@@ -6,7 +6,7 @@ $year = $_GET['year'];
 $key = $_GET['key'];
 
 if(empty($key) || $key !== 'JS17122020CWDevKey'){
-    header('Location: citywish.fr');
+    header('Location: ' . citywishBaseUrl());
     exit();
 }
 

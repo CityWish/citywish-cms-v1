@@ -1,5 +1,5 @@
 <?php
-ini_set('session.cookie_domain', '.citywish.fr');
+ini_set('session.cookie_domain', CITYWISH_COOKIE_DOMAIN);
 ini_set('session.cookie_path', '/');
 ini_set('session.cookie_httponly', 1);
 ini_set('session.cookie_secure', 1);
@@ -57,7 +57,7 @@ if (isset($bdd)) {
                         if($jr->discord_tokens !== 'none') {
                             $curl = curl_init('http://185.142.53.116:3000/discord?refresh='.explode(',', $jr->discord_tokens)[1]);
                             curl_setopt_array($curl, [
-                                CURLOPT_USERAGENT => 'CityWish (+https://citywish.fr)',
+                                CURLOPT_USERAGENT => 'CityWish (+' . citywishBaseUrl() . ')',
                                 CURLOPT_SSL_VERIFYHOST => false,
                                 CURLOPT_SSL_VERIFYPEER => false,
                                 CURLOPT_RETURNTRANSFER => true,

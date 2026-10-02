@@ -20,7 +20,7 @@ if (!isset($_SESSION['username'])) {
 }
 
 if (!isset($_SESSION['admin']) || $_SESSION['admin'] === false) {
-    header('Location: https://citywish.fr');
+    header('Location: ' . citywishBaseUrl());
     exit();
 }
 

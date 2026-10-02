@@ -1,5 +1,5 @@
 <?php
-ini_set('session.cookie_domain', '.citywish.fr');
+ini_set('session.cookie_domain', CITYWISH_COOKIE_DOMAIN);
 ini_set('session.cookie_path', '/');
 ini_set('session.cookie_httponly', 1);
 ini_set('session.cookie_secure', 1);

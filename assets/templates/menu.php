@@ -42,7 +42,7 @@
         <div id="right">
             <div class="search-user">
                 <input type="text" id="u-search" placeholder="Pseudo de l'utilisateur..."/>
-                <a id="u-s-href" href="https://citywish.fr/profil/">
+                <a id="u-s-href" href="<?= $Configs['Url'] ?>profil/">
                     <div class="search"><i class="fa fa-search"></i></div>
                 </a>
             </div>

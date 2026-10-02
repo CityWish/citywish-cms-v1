@@ -36,8 +36,8 @@ if (isset($_SESSION['username'])) {
   <meta property="og:title" content="CITYWISH" />
   <meta property="og:type" content="website" />
   <meta property="og:description" content="<?= $Configs['Desc'] ?>">
-  <meta property="og:url" content="https://citywish.fr/" />
-  <meta property="og:image:url" content="https://citywish.fr/assets/imgs/meta.png" />
+  <meta property="og:url" content="<?= $Configs['Url'] ?>" />
+  <meta property="og:image:url" content="<?= $Configs['Url'] ?>assets/imgs/meta.png" />
   <meta property="og:image:alt" content="CityWish" />
   <meta property="og:image:height" content="1024" />
   <meta property="og:image:width" content="1024" />
@@ -50,28 +50,28 @@ if (isset($_SESSION['username'])) {
   <meta name="twitter:title" content="CITYWISH" />
   <meta name="twitter:description" content="<?= $Configs['Desc'] ?>" />
   <meta name="twitter:creator" content="@Cold_FR" />
-  <meta name="twitter:image:src" content="https://citywish.fr/assets/imgs/meta.png" />
+  <meta name="twitter:image:src" content="<?= $Configs['Url'] ?>assets/imgs/meta.png" />
   <meta name="twitter:image:alt" content="CityWish" />
-  <meta name="twitter:domain" content="https://citywish.fr/" />
+  <meta name="twitter:domain" content="<?= $Configs['Url'] ?>" />
 
-  <link rel="apple-touch-icon-precomposed" sizes="57x57" href="https://citywish.fr/fav/apple-touch-icon-57x57.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="57x57" href="<?= $Configs['Url'] ?>fav/apple-touch-icon-57x57.png" />
   <link rel="apple-touch-icon-precomposed" sizes="114x114"
-    href="https://citywish.fr/fav/apple-touch-icon-114x114.png" />
-  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="https://citywish.fr/fav/apple-touch-icon-72x72.png" />
+    href="<?= $Configs['Url'] ?>fav/apple-touch-icon-114x114.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="<?= $Configs['Url'] ?>fav/apple-touch-icon-72x72.png" />
   <link rel="apple-touch-icon-precomposed" sizes="144x144"
-    href="https://citywish.fr/fav/apple-touch-icon-144x144.png" />
-  <link rel="apple-touch-icon-precomposed" sizes="60x60" href="https://citywish.fr/fav/apple-touch-icon-60x60.png" />
+    href="<?= $Configs['Url'] ?>fav/apple-touch-icon-144x144.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="60x60" href="<?= $Configs['Url'] ?>fav/apple-touch-icon-60x60.png" />
   <link rel="apple-touch-icon-precomposed" sizes="120x120"
-    href="https://citywish.fr/fav/apple-touch-icon-120x120.png" />
-  <link rel="apple-touch-icon-precomposed" sizes="76x76" href="https://citywish.fr/fav/apple-touch-icon-76x76.png" />
+    href="<?= $Configs['Url'] ?>fav/apple-touch-icon-120x120.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="76x76" href="<?= $Configs['Url'] ?>fav/apple-touch-icon-76x76.png" />
   <link rel="apple-touch-icon-precomposed" sizes="152x152"
-    href="https://citywish.fr/fav/apple-touch-icon-152x152.png" />
+    href="<?= $Configs['Url'] ?>fav/apple-touch-icon-152x152.png" />
 
-  <link rel="icon" type="image/png" href="https://citywish.fr/fav/favicon-196x196.png" sizes="196x196" />
-  <link rel="icon" type="image/png" href="https://citywish.fr/fav/favicon-96x96.png" sizes="96x96" />
-  <link rel="icon" type="image/png" href="https://citywish.fr/fav/favicon-32x32.png" sizes="32x32" />
-  <link rel="icon" type="image/png" href="https://citywish.fr/fav/favicon-16x16.png" sizes="16x16" />
-  <link rel="icon" type="image/png" href="https://citywish.fr/fav/favicon-128.png" sizes="128x128" />
+  <link rel="icon" type="image/png" href="<?= $Configs['Url'] ?>fav/favicon-196x196.png" sizes="196x196" />
+  <link rel="icon" type="image/png" href="<?= $Configs['Url'] ?>fav/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/png" href="<?= $Configs['Url'] ?>fav/favicon-32x32.png" sizes="32x32" />
+  <link rel="icon" type="image/png" href="<?= $Configs['Url'] ?>fav/favicon-16x16.png" sizes="16x16" />
+  <link rel="icon" type="image/png" href="<?= $Configs['Url'] ?>fav/favicon-128.png" sizes="128x128" />
 
   <link rel="stylesheet" type="text/css" href="<?= $Configs['Web'] ?>style/global.css?v=<?= VERSION ?>" />
   <link rel="stylesheet" type="text/css"
@@ -83,9 +83,9 @@ if (isset($_SESSION['username'])) {
   <link rel="stylesheet" type="text/css"
     href="https://code.getmdl.io/1.1.3/material.indigo-pink.min.css?v=<?= VERSION ?>" />
 
-  <link rel="alternate" type="application/rss+xml" title="CITYWISH" href="https://citywish.fr/rss.php" />
+  <link rel="alternate" type="application/rss+xml" title="CITYWISH" href="<?= $Configs['Url'] ?>rss.php" />
 
-  <script src="http://code.jquery.com/jquery-latest.js"></script>
+  <script src="https://code.jquery.com/jquery-latest.js"></script>
   <script src="./assets/js/jquery-ui/jquery-ui.js"></script>
 
   <title><?= $Configs['Nom'] ?> : Accueil</title>

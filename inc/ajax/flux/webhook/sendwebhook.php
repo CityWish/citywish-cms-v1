@@ -118,7 +118,7 @@ if (isset($bdd)) {
                                         }
 
                                         if (str_replace(' ', '', $webhook->avatar) === '') {
-                                            $client->avatar('https://citywish.fr/assets/imgs/meta.png');
+                                            $client->avatar(citywishBaseUrl() . 'assets/imgs/meta.png');
                                         } else {
                                             $client->avatar($webhook->avatar);
                                         }
@@ -130,12 +130,12 @@ if (isset($bdd)) {
                                                 $gesture = 'sad';
                                             }
                                             $img = 'https://avatar.citywish.fr/?username=' . $value['pseudo'] . '&headonly=0&direction=2&head_direction=3&action=wav&gesture=' . $gesture;
-                                            $url = 'https://citywish.fr/flux';
+                                            $url = citywishBaseUrl() . 'flux';
 
                                             $embed = new Embed();
                                             $embed->url($url);
                                             $embed->color($value['type']);
-                                            $embed->author('Flux HabboCity - Par CityWish', $url, 'https://citywish.fr/assets/imgs/meta.png');
+                                            $embed->author('Flux HabboCity - Par CityWish', $url, citywishBaseUrl() . 'assets/imgs/meta.png');
                                             $embed->title('**__Pôle ' . $value['pole'] . '__**');
                                             $embed->description($sentence);
                                             $embed->image($img);

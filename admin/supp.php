@@ -42,7 +42,7 @@
               <div class="card">
                 <h3 class="card-title">Articles pouvant être supprimé</h3>
             <?php while($a = $articles->fetch()) { ?>
-                <li><a href="https://citywish.fr/news.php?id=<?= $a['id'] ?>"><?= $a['titre'] ?></a> | <a href="./supprimer.php?id=<?= $a['id'] ?>">Supprimer</a></li>
+                <li><a href="<?= $Configs['Url'] ?>news.php?id=<?= $a['id'] ?>"><?= $a['titre'] ?></a> | <a href="./supprimer.php?id=<?= $a['id'] ?>">Supprimer</a></li>
                 <?php } ?>
 <br />
 <a href="./dediliste.php"><button   class="btn btn-primary icon-btn mr-10" class="btn btn-default">Rafraîchir</button></a>

@@ -1,10 +1,13 @@
 <?php
 require_once __DIR__ . '/config.php';
 
-ini_set('session.cookie_domain', '.citywish.fr');
 ini_set('session.cookie_path', '/');
 ini_set('session.cookie_httponly', 1);
-ini_set('session.cookie_secure', 1);
+$host = explode(':', $_SERVER['HTTP_HOST'] ?? '', 2)[0];
+if (!in_array($host, ['localhost', '127.0.0.1'], true)) {
+  ini_set('session.cookie_domain', CITYWISH_COOKIE_DOMAIN);
+  ini_set('session.cookie_secure', 1);
+}
 ini_set('session.cookie_samesite', 'strict');
 
 /*$isElectronApp = isset($_SERVER['HTTP_USER_AGENT']) && str_contains($_SERVER['HTTP_USER_AGENT'], 'Electron');
@@ -25,8 +28,8 @@ $Configs = [
   'Développeur' => 'Neal & Cold avec l\'aide de -Propre',
   'Nom' => 'CITYWISH',
   'Retro' => 'HabboCity',
-  'Url' => 'https://citywish.fr/',
-  'Web' => 'https://citywish.fr/assets/',
+  'Url' => citywishBaseUrl(),
+  'Web' => citywishBaseUrl() . 'assets/',
   'Desc' => 'CITYWISH est un site-fan officiel du rétro-serveur HabboCity ! Tu pourras y retrouver toute l\'actualité d\'HabboCity, ainsi que des jeux, des tutoriels et des concours inédits !',
 ];
 
@@ -56,7 +59,7 @@ function isOldHash($hash)
     return preg_match('/^[a-f0-9]{32}$/', $hash);
 }
 
-function happyCertif($length = 10, $prefix, $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'): string
+function happyCertif($length = 10, $prefix = null, $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'): string
 {
   $code = '';
   for ($i = 0; $i < $length; $i++) {

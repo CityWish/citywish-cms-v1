@@ -34,7 +34,7 @@ class Redaction {
 
   private function checkBanner()
   {
-    if(!str_starts_with($this->banner, 'https://citywish.fr/uploads/') OR !str_ends_with($this->banner, '.png')) {
+    if(!str_starts_with($this->banner, citywishBaseUrl() . 'uploads/') OR !str_ends_with($this->banner, '.png')) {
       $this->message = 'La bannière n\'est pas dans un format correct.';
       $this->missing[] = 'banner';
     }

@@ -54,14 +54,14 @@
         <meta name="country" content="France" />
         <meta name="geography" content="France" />
         <meta name="hreflang" content="fr-FR" />
-        <link rel="alternate" type="application/rss+xml" title="CITYWISH" href="https://citywish.fr/rss.php" />
+        <link rel="alternate" type="application/rss+xml" title="CITYWISH" href="<?= $Configs['Url'] ?>rss.php" />
 
 
         <meta property="og:title" content="CITYWISH" />
         <meta property="og:type" content="website" />
         <meta name='og:description' content="CITYWISH est un site-fan officiel du rétro-serveur HabboCity ! Tu pourras y retrouver toute l'actualité d'HabboCity, ainsi que des jeux, des tutoriels et des concours inédits !">
-        <meta property="og:url" content="https://citywish.fr/" />
-        <meta property='og:image:url' content='https://citywish.fr/assets/imgs/meta.png'>
+        <meta property="og:url" content="<?= $Configs['Url'] ?>" />
+        <meta property='og:image:url' content='<?= $Configs['Url'] ?>assets/imgs/meta.png'>
         <meta property="og:image:alt" content="CityWish" />
         <meta property="og:image:height" content="1024" />
         <meta property="og:image:width" content="1024" />
@@ -74,28 +74,28 @@
         <meta name="twitter:title" content="CITYWISH" />
         <meta name="twitter:description" content="CITYWISH est un site-fan officiel du rétro-serveur HabboCity ! Tu pourras y retrouver toute l'actualité d'HabboCity, ainsi que des jeux, des tutoriels et des concours inédits !" />
         <meta name="twitter:creator" content="@Cold_FR" />
-        <meta name="twitter:image:src" content="https://citywish.fr/assets/imgs/meta.png" />
+        <meta name="twitter:image:src" content="<?= $Configs['Url'] ?>assets/imgs/meta.png" />
         <meta name="twitter:image:alt" content="CityWish" />
-        <meta name="twitter:domain" content="https://citywish.fr/" />
+        <meta name="twitter:domain" content="<?= $Configs['Url'] ?>" />
 
-            <link rel="apple-touch-icon-precomposed" sizes="57x57" href="https://citywish.fr/fav/apple-touch-icon-57x57.png" />
-            <link rel="apple-touch-icon-precomposed" sizes="114x114" href="https://citywish.fr/fav/apple-touch-icon-114x114.png" />
-            <link rel="apple-touch-icon-precomposed" sizes="72x72" href="https://citywish.fr/fav/apple-touch-icon-72x72.png" />
-            <link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://citywish.fr/fav/apple-touch-icon-144x144.png" />
-            <link rel="apple-touch-icon-precomposed" sizes="60x60" href="https://citywish.fr/fav/apple-touch-icon-60x60.png" />
-            <link rel="apple-touch-icon-precomposed" sizes="120x120" href="https://citywish.fr/fav/apple-touch-icon-120x120.png" />
-            <link rel="apple-touch-icon-precomposed" sizes="76x76" href="https://citywish.fr/fav/apple-touch-icon-76x76.png" />
-            <link rel="apple-touch-icon-precomposed" sizes="152x152" href="https://citywish.fr/fav/apple-touch-icon-152x152.png" />
-            <link rel="icon" type="image/png" href="https://citywish.fr/fav/favicon-196x196.png" sizes="196x196" />
-            <link rel="icon" type="image/png" href="https://citywish.fr/fav/favicon-96x96.png" sizes="96x96" />
-            <link rel="icon" type="image/png" href="https://citywish.fr/fav/favicon-32x32.png" sizes="32x32" />
-            <link rel="icon" type="image/png" href="https://citywish.fr/fav/favicon-16x16.png" sizes="16x16" />
-            <link rel="icon" type="image/png" href="https://citywish.fr/fav/favicon-128.png" sizes="128x128" />
+            <link rel="apple-touch-icon-precomposed" sizes="57x57" href="<?= $Configs['Url'] ?>fav/apple-touch-icon-57x57.png" />
+            <link rel="apple-touch-icon-precomposed" sizes="114x114" href="<?= $Configs['Url'] ?>fav/apple-touch-icon-114x114.png" />
+            <link rel="apple-touch-icon-precomposed" sizes="72x72" href="<?= $Configs['Url'] ?>fav/apple-touch-icon-72x72.png" />
+            <link rel="apple-touch-icon-precomposed" sizes="144x144" href="<?= $Configs['Url'] ?>fav/apple-touch-icon-144x144.png" />
+            <link rel="apple-touch-icon-precomposed" sizes="60x60" href="<?= $Configs['Url'] ?>fav/apple-touch-icon-60x60.png" />
+            <link rel="apple-touch-icon-precomposed" sizes="120x120" href="<?= $Configs['Url'] ?>fav/apple-touch-icon-120x120.png" />
+            <link rel="apple-touch-icon-precomposed" sizes="76x76" href="<?= $Configs['Url'] ?>fav/apple-touch-icon-76x76.png" />
+            <link rel="apple-touch-icon-precomposed" sizes="152x152" href="<?= $Configs['Url'] ?>fav/apple-touch-icon-152x152.png" />
+            <link rel="icon" type="image/png" href="<?= $Configs['Url'] ?>fav/favicon-196x196.png" sizes="196x196" />
+            <link rel="icon" type="image/png" href="<?= $Configs['Url'] ?>fav/favicon-96x96.png" sizes="96x96" />
+            <link rel="icon" type="image/png" href="<?= $Configs['Url'] ?>fav/favicon-32x32.png" sizes="32x32" />
+            <link rel="icon" type="image/png" href="<?= $Configs['Url'] ?>fav/favicon-16x16.png" sizes="16x16" />
+            <link rel="icon" type="image/png" href="<?= $Configs['Url'] ?>fav/favicon-128.png" sizes="128x128" />
 
-            <link type="text/css" rel="stylesheet" href="https://citywish.fr/assets/style/global.css?v=<?= VERSION ?>" />
+            <link type="text/css" rel="stylesheet" href="<?= $Configs['Url'] ?>assets/style/global.css?v=<?= VERSION ?>" />
             <link type="text/css" rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css?v=<?= VERSION ?>">
-            <link type="text/css" rel="stylesheet" href="https://citywish.fr/assets/style/header.css?v=<?= VERSION ?>" />
-            <link type="text/css" rel='stylesheet' href='https://citywish.fr/assets/icones/font Awesome/css/font-awesome.css?v=<?= VERSION ?>'>
+            <link type="text/css" rel="stylesheet" href="<?= $Configs['Url'] ?>assets/style/header.css?v=<?= VERSION ?>" />
+            <link type="text/css" rel='stylesheet' href='<?= $Configs['Url'] ?>assets/icones/font Awesome/css/font-awesome.css?v=<?= VERSION ?>'>
             <link  rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
             <link type="text/css" rel="stylesheet" href="https://code.getmdl.io/1.1.3/material.indigo-pink.min.css?v=<?= VERSION ?>">
 

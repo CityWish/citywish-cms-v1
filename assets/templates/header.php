@@ -59,7 +59,7 @@
                                          src="https://avatar.citywish.fr/?username=<?= $_SESSION['username'] ?? '' ?>&size=n&head_direction=2&headonly=1"/>
                 </div>
                 <input type="text" id="u-search" placeholder="Pseudo de l'utilisateur..."/>
-                <a id="u-s-href" href="https://citywish.fr/profil/">
+                <a id="u-s-href" href="<?= $Configs['Url'] ?>profil/">
                     <div class="search"><i class="fa fa-search"></i></div>
                 </a>
             </div>
@@ -68,7 +68,7 @@
                 <?php if ($jr->rang < 6) { ?>
                     <a href="https://habbocity.me/" target="_blank">
                         <div class="btn"
-                             style="height: 39px;width: 90px;background: url(https://citywish.fr/assets/imgs/gocity.png);-webkit-border-radius: 8px;-moz-border-radius: 8px;border-radius: 9px;margin-right: -3px;"
+                             style="height: 39px;width: 90px;background: url(<?= $Configs['Url'] ?>assets/imgs/gocity.png);-webkit-border-radius: 8px;-moz-border-radius: 8px;border-radius: 9px;margin-right: -3px;"
                              id="go">
                         </div>
                     </a>
@@ -91,7 +91,7 @@
             <?php } } } else { ?>
                 <a href="https://habbocity.me/" target="_blank" style="margin-right: 50px;">
                     <div class="btn"
-                         style="height: 39px;width: 90px;background: url(https://citywish.fr/assets/imgs/gocity.png);-webkit-border-radius: 8px;-moz-border-radius: 8px;border-radius: 9px;"
+                         style="height: 39px;width: 90px;background: url(<?= $Configs['Url'] ?>assets/imgs/gocity.png);-webkit-border-radius: 8px;-moz-border-radius: 8px;border-radius: 9px;"
                          id="go">
                     </div>
                 </a>
@@ -117,12 +117,12 @@
 <header id="snowLimit">
     <div id="container" style="position: relative; z-index:2;">
         <div id="left">
-                        <!--<img src="https://citywish.fr/assets/imgs/birthday.png"
+                        <!--<img src="<?= $Configs['Url'] ?>assets/imgs/birthday.png"
                  style="position: absolute; height: 66px; width: 54px; margin-left:-10px; margin-top: 20px;z-index: 2;">   -->   
             <?php
             if(date('M') === 'Dec') {
             ?>
-            <img src="https://citywish.fr/assets/imgs/winter.png"
+            <img src="<?= $Configs['Url'] ?>assets/imgs/winter.png"
                  style="image-rendering: pixelated; position: absolute; height: 100px; width: 100px; margin-left:-39px; margin-top: -5px;z-index: 2;">            
             <?php } ?>
             <div class="logo">

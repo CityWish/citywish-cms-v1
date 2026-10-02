@@ -57,21 +57,21 @@ if(is_numeric($id)) {
   $giveaways->createGiveaways();
 
   $client = new Client(citywishEnv('CITYWISH_GIVEAWAY_DISCORD_WEBHOOK', CITYWISH_GIVEAWAY_DISCORD_WEBHOOK));
-  $client->avatar('https://citywish.fr/assets/imgs/meta.png');
+  $client->avatar(citywishBaseUrl() . 'assets/imgs/meta.png');
 
   $author = new UserInfo($giveaways->getAuthor());
 
   $embed = new Embed();
-  $embed->url('https://citywish.fr/');
+  $embed->url(citywishBaseUrl());
   $embed->color('#1976d2');
-  $embed->author($author->getName().' - '.html_entity_decode(html_entity_decode($author->getFonction())), 'https://citywish.fr/profil/'.$author->getName(), 'https://citywish.fr/assets/imgs/meta.png');
+  $embed->author($author->getName().' - '.html_entity_decode(html_entity_decode($author->getFonction())), citywishBaseUrl() . 'profil/'.$author->getName(), citywishBaseUrl() . 'assets/imgs/meta.png');
   $embed->title('__**Nouveau Giveaways sur CityWish.fr**__');
-  $embed->description('Un __**[nouveau giveaways](https://citywish.fr/)**__ lancé par __**['.$author->getName().'](https://citywish.fr/profil/'.$author->getName().' "'.html_entity_decode(html_entity_decode($author->getFonction())).'")**__ est apparu sur notre site internet CityWish.fr !');
+  $embed->description('Un __**[nouveau giveaways](' . citywishBaseUrl() . ')**__ lancé par __**['.$author->getName().'](' . citywishBaseUrl() . 'profil/'.$author->getName().' "'.html_entity_decode(html_entity_decode($author->getFonction())).'")**__ est apparu sur notre site internet !');
   $embed->field('Lots du giveaways :', '__'.$giveaways->getTitle().'__', true);
   $embed->field('Nombre de gagnants :', '__'.$giveaways->getNbWinners().'__', true);
   $embed->field('Date de fin du giveaways :', '__'.date('d-m-Y', $giveaways->getTimestamp()).'__', true);
-  $embed->thumbnail('https://citywish.fr/assets/imgs/meta.png');
-  $embed->footer('Liste des articles de notre site : https://citywish.fr/articles');
+  $embed->thumbnail(citywishBaseUrl() . 'assets/imgs/meta.png');
+  $embed->footer('Liste des articles de notre site : ' . citywishBaseUrl() . 'articles');
   $embed->timestamp(date('c'));
   $client->embed($embed)->message('<@&564520652145557534>')->send();
 

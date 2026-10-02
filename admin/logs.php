@@ -42,7 +42,7 @@
               <div class="card">
                 <h3 class="card-title">Logs du site</h3>
               <?php while($l = $logs->fetch()) { ?>
-              <li><?= $l['logs'] ?> | par <a href="https://citywish.fr/profil.php?name=<?= $l['par'] ?>"><?= $l['par']?></a> | le <?= $l['dates']?></li>
+              <li><?= $l['logs'] ?> | par <a href="<?= $Configs['Url'] ?>profil.php?name=<?= $l['par'] ?>"><?= $l['par']?></a> | le <?= $l['dates']?></li>
               <?php } ?>
 <br />
 <a href="./logs.php"><button   class="btn btn-primary icon-btn mr-10" class="btn btn-default">Rafraîchir</button></a>

@@ -52,4 +52,4 @@ move_uploaded_file($image['tmp_name'], $image_destination);
 $logsql = $bdd->prepare('INSERT INTO logs (logs, par, dates) VALUES (:logs, :par, :dates)');
 $logsql->execute(['logs' => 'A upload une image', 'par' => $jr->name, 'dates' => date('d-m-Y H:i:s')]);
 
-message('Le fichier ' . basename($image['name']) . ' a bien été envoyé. Vous pouvez le retrouver ici https://citywish.fr/' . $image_destination, '/admin/listimg.php');
+message('Le fichier ' . basename($image['name']) . ' a bien été envoyé. Vous pouvez le retrouver ici ' . $Configs['Url'] . $image_destination, '/admin/listimg.php');

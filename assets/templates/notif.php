@@ -5,4 +5,4 @@
   <div class="notif-content"></div>
   <div class="notif-load" style="transform: scale(1);">Chargement...</div>
 </div>
-<script type="text/javascript" src="https://citywish.fr/assets/js/notif.js"></script>
+<script type="text/javascript" src="<?= $Configs['Url'] ?>assets/js/notif.js"></script>

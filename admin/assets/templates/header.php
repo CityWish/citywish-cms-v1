@@ -19,7 +19,7 @@
               if($sql->rowCount() !== 0) {
             ?>
             <li class="nav">
-              <a href="https://citywish.fr/administration/"><i class="fa fa-dashboard"></i><span>Nouvelle administration</span></a>
+              <a href="<?= $Configs['Url'] ?>administration/"><i class="fa fa-dashboard"></i><span>Nouvelle administration</span></a>
             </li>
             <?php  } } ?>
             <?php if(isset($_SESSION['username'])){ if($jr->rang >= 10 OR $jr->fonction === 'Resp. R&amp;eacute;daction'){ ?>

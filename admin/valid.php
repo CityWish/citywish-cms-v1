@@ -23,25 +23,25 @@ $page = "valid";
     $author->execute([$article->par]);
     $par = $author->fetch(PDO::FETCH_OBJ);
    /* $client = new Client(citywishEnv('CITYWISH_ADMIN_DISCORD_WEBHOOK', CITYWISH_ADMIN_DISCORD_WEBHOOK));
-    $client->avatar('https://citywish.fr/assets/imgs/meta.png');
+    $client->avatar(citywishBaseUrl() . 'assets/imgs/meta.png');
 
     $titre = html_entity_decode(html_entity_decode($article->titre));
     $descp = html_entity_decode(html_entity_decode($article->descp));
     $poste = html_entity_decode(html_entity_decode($par->fonction));
 
     $embed = new Embed();
-    $embed->url('https://citywish.fr/news?id='.$_GET['valid']);
+    $embed->url(citywishBaseUrl() . 'news?id='.$_GET['valid']);
     $embed->color('#1976d2');
-    $embed->author($par->name.' - '.$poste, 'https://citywish.fr/profil/'.$par->name, 'https://citywish.fr/assets/imgs/meta.png');
+    $embed->author($par->name.' - '.$poste, citywishBaseUrl() . 'profil/'.$par->name, citywishBaseUrl() . 'assets/imgs/meta.png');
     $embed->title('__**Nouvel Article sur CityWish**__');
-    $embed->description('Un __**[nouvel article](https://citywish.fr/news?id='.$_GET['valid'].' "'.$titre.'")**__ écrit par __**['.$par->name.'](https://citywish.fr/profil/'.$par->name.' "'.$poste.'")**__ est apparu sur notre site internet CityWish.fr !');
+    $embed->description('Un __**[nouvel article](<?= $Configs['Url'] ?>news?id='.$_GET['valid'].' "'.$titre.'")**__ écrit par __**['.$par->name.'](<?= $Configs['Url'] ?>profil/'.$par->name.' "'.$poste.'")**__ est apparu sur notre site internet CityWish.fr !');
     $embed->field('Titre de l\'article :', '__'.$titre.'__', true);
     $embed->field('Description de l\'article :', '__'.$descp.'__', true);
     $embed->field('Catégorie de l\'article :', '__'.$article->categorie.'__', true);
-    $embed->field('Lien de l\'article :', '**https://citywish.fr/news?id='.$_GET['valid'].'**');
+    $embed->field('Lien de l\'article :', '**<?= $Configs['Url'] ?>news?id='.$_GET['valid'].'**');
     $embed->image($article->background);
-    $embed->thumbnail('https://citywish.fr/assets/imgs/meta.png');
-    $embed->footer('Liste des articles de notre site : https://citywish.fr/articles');
+    $embed->thumbnail(citywishBaseUrl() . 'assets/imgs/meta.png');
+    $embed->footer('Liste des articles de notre site : ' . citywishBaseUrl() . 'articles');
     $embed->timestamp(date('c'));
     $client->embed($embed)->message('<@&586184708581359617>')->send();*/
     } else {

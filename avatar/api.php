@@ -67,7 +67,7 @@ class ApiHabboCity
     {
         $curl = curl_init($url);
         curl_setopt_array($curl, [
-            CURLOPT_USERAGENT => 'CityWish (+https://citywish.fr)',
+            CURLOPT_USERAGENT => 'CityWish (+' . citywishBaseUrl() . ')',
             CURLOPT_SSL_VERIFYHOST => false,
             CURLOPT_SSL_VERIFYPEER => false,
             CURLOPT_RETURNTRANSFER => true,

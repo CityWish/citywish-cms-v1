@@ -15,7 +15,7 @@ if (isset($bdd)) {
           $code = $_GET['code'];
           $curl = curl_init('http://185.142.53.116:3000/discord?code='.$code);
           curl_setopt_array($curl, [
-              CURLOPT_USERAGENT => 'CityWish (+https://citywish.fr)',
+              CURLOPT_USERAGENT => 'CityWish (+' . citywishBaseUrl() . ')',
               CURLOPT_SSL_VERIFYHOST => false,
               CURLOPT_SSL_VERIFYPEER => false,
               CURLOPT_RETURNTRANSFER => true,

@@ -1,5 +1,5 @@
 <?php
-ini_set('session.cookie_domain', '.citywish.fr');
+ini_set('session.cookie_domain', CITYWISH_COOKIE_DOMAIN);
 ini_set('session.cookie_path', '/');
 ini_set('session.cookie_httponly', 1);
 ini_set('session.cookie_secure', 1);
@@ -8,7 +8,7 @@ session_start();
 
 require_once '../../bdd.php';
 
-function happyCertif($length = 10, $prefix, $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'): string
+function happyCertif($length = 10, $prefix = null, $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'): string
 {
   $code = '';
   for ($i = 0; $i < $length; $i++) {
@@ -43,7 +43,7 @@ if (isset($bdd)) {
 
         $curl = curl_init('http://185.142.53.116:3000/a2f?token='.$token.'&userid='.$jr->id);
         curl_setopt_array($curl, [
-            CURLOPT_USERAGENT => 'CityWish (+https://citywish.fr)',
+            CURLOPT_USERAGENT => 'CityWish (+' . citywishBaseUrl() . ')',
             CURLOPT_SSL_VERIFYHOST => false,
             CURLOPT_SSL_VERIFYPEER => false,
             CURLOPT_RETURNTRANSFER => true,

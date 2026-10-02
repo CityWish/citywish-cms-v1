@@ -43,7 +43,7 @@
               <div class="card">
                 <h3 class="card-title">Articles</h3> 
                 <?php while($a = $articles->fetch()) {
-                    $url = $a['valid'] == 0 ? 'https://citywish.fr/admin/view?id=' . $a['id'] : "https://citywish.fr/news.php?id=" . $a['id'];
+                    $url = $a['valid'] == 0 ? $Configs['Url'] . 'admin/view?id=' . $a['id'] : $Configs['Url'] . 'news.php?id=' . $a['id'];
                     ?>
                 <li><a target="_blank" href="<?= $url; ?>"><?= $a['titre'] ?></a></li>
                 <?php } ?>

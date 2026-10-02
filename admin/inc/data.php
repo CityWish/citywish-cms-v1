@@ -277,7 +277,7 @@ if(isset($_GET['do'])){
 		$sqlpartners = $bdd->prepare("INSERT INTO partners(name,link,img,img_little,color,descp,valid) VALUES(?,?,?,?,?,?,?)");
 		$sqlpartners->execute([happySecu($_POST['orga-name']), happySecu($_POST['orga-plateform']), happySecu($_POST['orga-banner']), happySecu($_POST['orga-little']), happySecu($_POST['orga-color']), happySecu($_POST['orga-descp']), happySecu($_POST['orga-valid'])]);
 		if($_POST['orga-valid'] == 1){
-			header("Location: https://citywish.fr/partners");
+			header('Location: ' . citywishBaseUrl() . 'partners');
 			exit();
 		}else{
 			header("Location: partners");

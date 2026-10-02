@@ -49,7 +49,7 @@ if($sql->rowCount() > 0){
     echo json_encode($response,JSON_FORCE_OBJECT|JSON_UNESCAPED_UNICODE);
     exit();
 }else{
-    $response = ['error' => 'Aucun compte ne possède ce nom d\'utilisateur sur https://citywish.fr.'];
+    $response = ['error' => 'Aucun compte ne possède ce nom d\'utilisateur sur ' . citywishBaseUrl() . '.'];
     echo json_encode($response);
     exit();
 }
