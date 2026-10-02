@@ -1,0 +1,37 @@
+services:
+  web:
+    build:
+      context: .
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      CITYWISH_DB_HOST: db
+      CITYWISH_DB_NAME: citywish
+      CITYWISH_DB_USER: citywish
+      CITYWISH_DB_PASS: citywish_dev
+      CITYWISH_BASE_URL: http://localhost:8080
+      CITYWISH_API_KEY: ""
+      CITYWISH_ADMIN_DISCORD_WEBHOOK: ""
+      CITYWISH_GIVEAWAY_DISCORD_WEBHOOK: ""
+    ports:
+      - "8080:80"
+
+  db:
+    image: mysql:8.4
+    environment:
+      MYSQL_DATABASE: citywish
+      MYSQL_USER: citywish
+      MYSQL_PASSWORD: citywish_dev
+      MYSQL_ROOT_PASSWORD: citywish_root_dev
+    healthcheck:
+      test: ["CMD-SHELL", "mysqladmin ping -h localhost -u root -p$$MYSQL_ROOT_PASSWORD --silent"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+    volumes:
+      - citywish-db:/var/lib/mysql
+      - ./database_schema.sql:/docker-entrypoint-initdb.d/01-schema.sql:ro
+
+volumes:
+  citywish-db:

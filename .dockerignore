@@ -1,0 +1,9 @@
+.git
+.idea
+.env
+*.log
+Thumbs.db
+admin/uploads
+uploads
+avatar/log
+administration/log
