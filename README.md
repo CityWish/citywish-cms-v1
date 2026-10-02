@@ -48,15 +48,17 @@ d’administration.
 - un accès à l’API HabboCity si les fonctionnalités d’avatar sont activées ;
 - un compte Discord et un webhook si les notifications sont activées.
 
-Le schéma MySQL n’est pas fourni dans cette arborescence. Il faut donc
-exporter/importer séparément la base de données de l’instance d’origine, après
-avoir supprimé les données personnelles et les contenus non redistribuables.
+Le schéma MySQL est fourni dans [`database_schema.sql`](database_schema.sql).
+Il s’agit d’un dump de structure sans données applicatives (`INSERT INTO`) :
+les comptes, articles, logs, uploads et autres données de production ne sont
+donc pas inclus.
 
 ## Installation locale
 
 1. Servir la racine du projet avec Apache et activer `AllowOverride` pour que
    `.htaccess` soit pris en compte.
-2. Créer une base MySQL vide et importer un schéma de développement.
+2. Créer une base nommée `citywish` et importer le schéma :
+   `mysql -u citywish -p citywish < database_schema.sql`.
 3. Définir les variables d’environnement listées dans `.env.example`.
 4. Remplacer les URLs de production dans `.htaccess`, `inc/core.php` et les
    templates si l’application est utilisée sous un autre domaine.
@@ -65,8 +67,72 @@ avoir supprimé les données personnelles et les contenus non redistribuables.
 
 La configuration est centralisée dans `inc/config.php`. Elle ne contient plus
 de secret par défaut : les valeurs sensibles sont lues depuis l’environnement.
-Les variables principales sont `CITYWISH_DB_PASS`, `CITYWISH_API_KEY`,
+Les variables principales sont `CITYWISH_BASE_URL`, `CITYWISH_DB_HOST`, `CITYWISH_DB_NAME`,
+`CITYWISH_DB_USER`, `CITYWISH_DB_PASS`, `CITYWISH_API_KEY`,
 `CITYWISH_ADMIN_DISCORD_WEBHOOK` et `CITYWISH_GIVEAWAY_DISCORD_WEBHOOK`.
+`CITYWISH_BASE_URL` permet d’adapter les URLs générées par l’application ; le
+setup Docker le définit à `http://localhost:8080` afin que les assets locaux
+ne soient pas chargés depuis le domaine de production.
+`CITYWISH_COOKIE_DOMAIN` est optionnelle et permet de partager la session entre
+plusieurs sous-domaines en production ; elle doit rester vide en local.
+
+### Test rapide avec Docker
+
+Docker Compose fournit une instance locale prête à démarrer avec PHP 8.3,
+Apache et MySQL 8.4. Le fichier `database_schema.sql` est importé
+automatiquement dans une base vide et les identifiants utilisés sont
+volontairement locaux au conteneur.
+
+```bash
+docker compose up --build -d
+curl -I http://localhost:8080/
+docker compose logs web
+```
+
+Le site est ensuite disponible à l’adresse
+[`http://localhost:8080/`](http://localhost:8080/). Pour arrêter et supprimer
+les conteneurs :
+
+```bash
+docker compose down
+```
+
+Pour réinitialiser aussi la base de données et rejouer le dump SQL :
+
+```bash
+docker compose down -v
+docker compose up --build -d
+```
+
+Cette configuration est destinée à vérifier le démarrage, le routage Apache,
+la connexion PDO et le chargement des pages sans données métier. Les erreurs
+dues à l’absence de comptes, d’articles, de clé API HabboCity ou de webhook
+Discord sont donc attendues dans ce mode de test ; elles ne constituent pas
+un échec de l’installation Docker.
+
+### Correspondance du schéma
+
+Le dump couvre les deux générations de l’administration et le site public :
+
+- le site et `admin/` utilisent principalement `members`, `news`, `dedi`,
+  `commentaires`, `flux`, `flux_webhook`, `partners`, `vote`, `view_article`,
+  `banip`, `maintenance` et `logs` ;
+- `administration/` utilise notamment `articles`, `articles_correct`,
+  `articles_edit`, `members_perms`, `permissions`, `giveaways`,
+  `giveaways_participants`, `members_figure`, `team_poles` et `team_staffs` ;
+- `auth2factor`, `ranking_discord` et `statutvote` sont également présents pour
+  les fonctionnalités spécialisées du code.
+
+La structure correspond aux tables et colonnes référencées par le code audité.
+Le commentaire phpMyAdmin du dump indique toutefois une base source nommée
+`app` et un hôte Docker `db:3306` ; ces valeurs ne sont pas utilisées par
+l’application et doivent rester remplacées par la configuration locale
+(`CITYWISH_DB_HOST`, `CITYWISH_DB_NAME`, `SQL_HOST` et `SQL_BASE`).
+
+Le dump a été produit avec MySQL 8.4 et utilise notamment la collation
+`utf8mb4_0900_ai_ci` sur certaines tables de la V2. MariaDB ou une version
+plus ancienne de MySQL peut nécessiter le remplacement de cette collation par
+une collation compatible avant import.
 
 ## Audit de publication
 
