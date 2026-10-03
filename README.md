@@ -1,7 +1,6 @@
-# CityWish
+# CityWish - CMS v1
 
-CityWish est un site de fan développé en PHP/MySQL pour la communauté HabboCity :
-actualité, profils, votes, dédicaces, concours, flux communautaire et
+CityWish est un ancien site de fan de HabboCity développé en PHP : actualité, profils, votes, dédicaces, concours, flux communautaire et
 administration.
 
 > **À savoir** : il s’agit d’une base de code historique, assez lourde,
@@ -108,9 +107,9 @@ docker compose down -v
 docker compose up --build -d
 ```
 
-Cette configuration vérifie le démarrage, le routage Apache, la connexion PDO
+Cette configuration permet de vérifier le démarrage, le routage Apache, la connexion PDO
 et le chargement des pages sans données métier. Les erreurs liées à l’absence
-de comptes, d’articles, de clé API HabboCity ou de webhook Discord sont
+de comptes, d’articles, de clé API HabboCity ou de bot Discord sont
 attendues dans ce mode de test.
 
 ### Correspondance du schéma
