@@ -58,6 +58,8 @@ Le projet a été développé par **Neal/Minao** puis remanié au fil des année
 Le schéma MySQL est fourni dans [`database_schema.sql`](database_schema.sql).
 Il s’agit d’un dump de structure sans données applicatives (`INSERT INTO`).
 
+Le fichier de configuration Apache d'origine est fourni [`apache.conf`](apache.conf) en guise d'exemple.
+
 ## Installation locale
 
 1. Servir la racine du projet avec Apache et activer `AllowOverride` pour que
