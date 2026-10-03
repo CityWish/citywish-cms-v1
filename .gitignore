@@ -9,5 +9,6 @@ Thumbs.db
 # Local uploads and generated files
 admin/uploads/
 uploads/
+log/
 avatar/log/
 administration/log/
